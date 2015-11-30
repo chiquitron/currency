@@ -1,5 +1,4 @@
-group: edge
-sudo: required
+sudo: true
 
 services:
    - docker	
