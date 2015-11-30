@@ -19,7 +19,7 @@ public class HelloWorldService {
 	
 	public String getHelloMessage() {
 		logger.info("---> Hello Word Currency Exchange ");
-		return " Welcome to Currency Exchange Microservice "; 
+		return " Welcome to Currency Exchange Microservice Voo"; 
 	}
 
 }
