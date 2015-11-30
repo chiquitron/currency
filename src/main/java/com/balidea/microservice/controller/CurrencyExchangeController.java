@@ -26,10 +26,6 @@ public class CurrencyExchangeController {
 	
 	@Autowired
 	private HelloWorldService helloWorldService;
-	@Autowired
-	private QuandlCacheManager cacheManager;
-	@Autowired
-	private CurrencyExchangeRepository currencyExchangeRepository;
 	@Autowired 
 	private ApplicationProperties propertiesConfig;
 
