@@ -20,7 +20,8 @@ before_install:
   
 script:
   - docker pull $IMAGENAME:$TAG_LATEST
-  - docker run -d -p 127.0.0.1:80:8080 $IMAGENAME:$TAG_LATEST
+  - export IP=boot2docker ip
+  - docker run -d -p $IP:80:8080 $IMAGENAME:$TAG_LATEST
   - docker ps -a
   
 notifications:
