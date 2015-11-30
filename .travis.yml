@@ -6,7 +6,7 @@ services:
 env:
    global:
     - REGISTRY: balidea
-    - IMAGENAME: $REGISTRY/$TRAVIS_REPO_SLUG
+    - IMAGENAME: balidea/currency
     - TAG_VERSION: $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
     - TAG_LATEST: latest
 script: 
