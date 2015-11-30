@@ -10,8 +10,8 @@ env:
     - REGISTRY: balidea
 
 script: 
-	-mvn test
-	-mvn clean install -DskipTests=true
+  - mvn test
+  - mvn clean install -DskipTests=true
 	
 before_install:
   - echo "Testing Docker Hub credentials"
