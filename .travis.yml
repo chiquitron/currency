@@ -20,5 +20,8 @@ after_success:
   - export TAG='if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi'
   - cd .docker
   - docker build -t $IMAGENAME .
-  - docker tag $IMAGENAME $REGISTRY/$IMAGENAME:$TAG
-  - docker push $REGISTRY/$IMAGENAME:$TAG
+  - export IMAGEID ='docker images -q $IMAGENAME '
+  - echo $IMAGEID
+  - echo $TAG
+  - docker tag $IMAGEID $REGISTRY/$IMAGENAME:latest
+  - docker push $REGISTRY/$IMAGENAME:latest
