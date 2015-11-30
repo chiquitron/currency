@@ -44,9 +44,9 @@ public class ApplicationPropertiesUnitTests {
      */
 	@Test
 	public void obtainStringProperty() {
-		String stringProperty = this.applicationProperties.getStringValue("country.index.germany");
+		String stringProperty = this.applicationProperties.getStringValue("currency.name.eur");
 		Assert.assertNotNull(stringProperty);
-		Assert.assertEquals(new String("^gdaxi"), stringProperty);
+		Assert.assertEquals(new String("EUR"), stringProperty);
 	}
 	
     /**

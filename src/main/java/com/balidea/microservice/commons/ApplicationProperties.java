@@ -62,25 +62,5 @@ public class ApplicationProperties {
 		return Integer.valueOf(propertiesMap.get(key));
 	}
 
-	/**
-	 * Method that obtain the value from a property key
-	 * with the prefix currency.name.
-	 * @param key 
-	 * 			property key 
-	 * @return String property value
-	 */
-	public String getCurrencyName(String key){
-		return propertiesMap.get(Constants.CURRENCY_NAME_PROPERTIE + key);
-	}
-	
-	/**
-	 * Method that obtain the value from a property key
-	 * with the prefix currency.pair.
-	 * @param key 
-	 * 			property key 
-	 * @return String property value
-	 */
-	public String getCurrencyPair(String key){
-		return propertiesMap.get(Constants.CURRENCY_PAIR_PROPERTIE + key);
-	}
+
 }
