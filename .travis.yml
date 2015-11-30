@@ -20,6 +20,8 @@ script:
   - docker tag --force=true $IMAGENAME:$TAG_VERSION $IMAGENAME:$TAG_LATEST
   - docker push $IMAGENAME:$TAG_VERSION
   - docker push $IMAGENAME:$TAG_LATEST
+  
 notifications:
   email:
     - veronica.otero@balidea.com
+    - manuel.otero@balidea.com
