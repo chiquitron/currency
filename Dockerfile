@@ -17,8 +17,6 @@ ADD src /data/currencyExchange/src
 RUN ["mvn", "package"]
 RUN ["mvn", "test"]
 
-ADD currencyExchange.jar /data/currencyExchange/
-
 EXPOSE 8080
 
 CMD ["java", "-jar", "currencyExchange.jar"]

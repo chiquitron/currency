@@ -1,7 +1,23 @@
 FROM java:7
 MAINTAINER veronica.otero@balidea.com
-ADD /home/travis/build/chiquitron/currency/target/currencyExchange.jar /data/currencyExchange/
+
+# Install maven
+RUN apt-get update
+RUN apt-get install -y maven
+
+WORKDIR /data/currencyExchange/
+
+# Prepare by downloading dependencies
+ADD pom.xml /data/currencyExchange/pom.xml
+RUN ["mvn", "dependency:resolve"]
+RUN ["mvn", "verify"]
+
+# Adding source, compile and package into a fat jar
+ADD src /data/currencyExchange/src
+RUN ["mvn", "package"]
+RUN ["mvn", "test"]
+
 EXPOSE 8080
-WORKDIR /data/brfClientCenter/
-CMD ["java", "-jar", "/home/travis/build/chiquitron/currency/target/currencyExchange.jar"]
+
+CMD ["java", "-jar", "currencyExchange.jar"]
 
