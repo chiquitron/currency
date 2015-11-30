@@ -10,7 +10,6 @@ WORKDIR /data/currencyExchange/
 # Prepare by downloading dependencies
 ADD pom.xml /data/currencyExchange/pom.xml
 RUN ["mvn", "dependency:resolve"]
-RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
 ADD src /data/currencyExchange/src
