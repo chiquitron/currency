@@ -10,7 +10,8 @@ env:
     - REGISTRY: balidea
 
 script: 
-  - mvn test clean install
+  - mvn test 
+  - mvn package
 	
 before_install:
   - echo "Testing Docker Hub credentials"
