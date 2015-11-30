@@ -6,10 +6,9 @@ services:
 env:
    global:
     - REGISTRY: balidea
-    - IMAGENAME: $REGISTRY/currency
+    - IMAGENAME: currency
 script: 
   - mvn test 
-  - mvn clean install -DskipTests=true
 before_install:
   - echo "Testing Docker Hub credentials"
   - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
@@ -21,6 +20,5 @@ after_success:
   - export TAG='if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi'
   - cd .docker
   - docker build -t $IMAGENAME .
-  - docker tag $REGISTRY:$COMMIT $REGISTRY:$TAG
-  - docker tag $REGISTRY:$COMMIT $REGISTRY:travis-$TRAVIS_BUILD_NUMBER
-  - docker push $REGISTRY
+  - docker tag $IMAGENAME $REGISTRY/$IMAGENAME:$TAG
+  - docker push $REGISTRY/$IMAGENAME:$TAG
