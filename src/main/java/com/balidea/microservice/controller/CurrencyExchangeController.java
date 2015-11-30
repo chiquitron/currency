@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.balidea.microservice.commons.ApplicationProperties;
-import com.balidea.microservice.model.respository.CurrencyExchangeRepository;
-import com.balidea.microservice.services.QuandlCacheManager;
 
 /**
  * 
