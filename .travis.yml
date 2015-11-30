@@ -1,3 +1,4 @@
+group: edge
 sudo: required
 
 services:
@@ -24,4 +25,3 @@ script:
 notifications:
   email:
     - veronica.otero@balidea.com
-    - manuel.otero@balidea.com
