@@ -1,4 +1,4 @@
-sudo: true
+sudo: required
 
 services:
    - docker	
@@ -9,7 +9,7 @@ env:
     - TAG_VERSION: $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
     - TAG_LATEST: latest
 
-script:
+before_install:
   - echo "Test Success - Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo -e "Push Container to Docker Hub"; fi
   - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
@@ -21,6 +21,11 @@ script:
   - docker push $IMAGENAME:$TAG_VERSION
   - docker push $IMAGENAME:$TAG_LATEST
   
+script:
+  - docker pull $IMAGENAME:$TAG_LATEST
+  - docker run -d -p 127.0.0.1:80:8080 $IMAGENAME:$TAG_LATEST
+  - docker ps -a
+ 
 notifications:
   email:
     - veronica.otero@balidea.com
