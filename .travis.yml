@@ -11,7 +11,7 @@ env:
 
 script: 
   - mvn test
-  - mvn clean install -DskipTests=true
+  - mvn clean install
 	
 before_install:
   - echo "Testing Docker Hub credentials"
