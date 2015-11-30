@@ -1,0 +1,17 @@
+com\balidea\microservice\commons\CommonUtils.class
+com\balidea\microservice\services\QuandlCacheManager.class
+com\balidea\microservice\model\vo\Exchange.class
+com\balidea\microservice\AppConfig.class
+com\balidea\microservice\services\CurrencyExchangeServicePost.class
+com\balidea\microservice\model\respository\CurrencyExchangeRepository.class
+com\balidea\microservice\CurrencyExchangeApplication.class
+com\balidea\microservice\commons\ResourceNotFoundException.class
+com\balidea\microservice\model\vo\Series.class
+com\balidea\microservice\model\vo\Sample.class
+com\balidea\microservice\model\vo\CurrencyExchangeResponse.class
+com\balidea\microservice\commons\ApplicationProperties.class
+com\balidea\microservice\model\vo\DataExchangeResults.class
+com\balidea\microservice\controller\CurrencyExchangeController.class
+com\balidea\microservice\commons\Constants.class
+com\balidea\microservice\controller\HelloWorldService.class
+com\balidea\microservice\model\vo\Parameters.class
