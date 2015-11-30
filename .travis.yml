@@ -8,7 +8,7 @@ services:
 env:
   global:
     - REGISTRY: balidea
-    - IMAGENAME:	balidea/currency
+    - IMAGENAME: balidea/currency
 	
 script: 
 	-mvn test
