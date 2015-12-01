@@ -18,5 +18,5 @@ RUN ["mvn", "test"]
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "currencyExchange.jar"]
+CMD ["java", "-jar", "/data/currencyExchange/target/currencyExchange.jar"]
 
