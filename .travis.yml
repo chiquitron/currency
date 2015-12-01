@@ -18,13 +18,6 @@ before_install:
   - docker push $IMAGENAME:$TAG_VERSION
   - docker push $IMAGENAME:$TAG_LATEST
   
-script:
-  - docker pull $IMAGENAME:$TAG_LATEST
-  - export IP=$(oot2docker ip)
-  - echo $IP
-  - docker run -d -p 127.0.0.1:8080:8080 $IMAGENAME:$TAG_LATEST
-  - docker ps -a
-  
 notifications:
   email:
     - veronica.otero@balidea.com
