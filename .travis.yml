@@ -20,9 +20,9 @@ before_install:
   
 script:
   - docker pull $IMAGENAME:$TAG_LATEST
-  - export IP=boot2docker ip
+  - export IP=$(oot2docker ip)
   - echo $IP
-  - docker run -d -p 8080:8080 $IMAGENAME:$TAG_LATEST
+  - docker run -d -p 127.0.0.1:8080:8080 $IMAGENAME:$TAG_LATEST
   - docker ps -a
   
 notifications:
