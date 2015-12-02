@@ -9,7 +9,7 @@ env:
     - TAG_VERSION: $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
     - TAG_LATEST: latest
 
-before_install:
+script:
   - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
   - echo "LABEL GIT_COMMIT=$(git show-ref --heads | cut -f1 -d' ')" >> Dockerfile
   - echo "LABEL TAG_VERSION=$TAG_VERSION" >> Dockerfile
