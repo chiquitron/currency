@@ -11,10 +11,8 @@ env:
     - TAG_LATEST: latest
 
 before_script:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+  - curl -L https://github.com/docker/machine/releases/download/v0.5.3/docker-machine_linux-amd64 >/usr/local/bin/docker-machine
+  - chmod +x /usr/local/bin/docker-machine
   - docker-machine -v
   - docker-machine ls
   - docker-machine create --driver virtualbox dev
