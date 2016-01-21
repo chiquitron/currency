@@ -11,8 +11,8 @@ env:
     - TAG_LATEST: latest
 
 before_script:
-  - curl -L https://github.com/docker/machine/releases/download/v0.5.3/docker-machine_linux-amd64 >/usr/local/bin/docker-machine
-  - chmod +x /usr/local/bin/docker-machine
+  - sudo curl -L https://github.com/docker/machine/releases/download/v0.5.3/docker-machine_linux-amd64 >/usr/local/bin/docker-machine
+  - sudo chmod +x /usr/local/bin/docker-machine
   - docker-machine -v
   - docker-machine ls
   - docker-machine create --driver virtualbox dev
