@@ -10,7 +10,7 @@ env:
     - TAG_VERSION: $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
     - TAG_LATEST: latest
 
-script:
+before_script:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
@@ -21,6 +21,7 @@ script:
   - docker-machine ls
   - echo $DOCKER_HOST
   - echo $DOCKER_CERT_PATH
+script:
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
   - docker tag --force=true $IMAGENAME:$TAG_VERSION $IMAGENAME:$TAG_LATEST
   - docker push $IMAGENAME:$TAG_VERSION
