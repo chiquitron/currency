@@ -11,8 +11,14 @@ env:
     - TAG_LATEST: latest
 
 script:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
   - docker-machine -v
-  - docker-compose -v
+  - docker-machine ls
+  - docker-machine create --driver virtualbox dev
+  - docker-machine ls
   - echo $DOCKER_HOST
   - echo $DOCKER_CERT_PATH
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
