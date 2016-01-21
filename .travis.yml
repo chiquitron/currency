@@ -9,7 +9,7 @@ env:
     - IMAGENAME: $REGISTRY/$TRAVIS_REPO_SLUG
     - TAG_VERSION: $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
     - TAG_LATEST: latest
-	
+
 script:
   - docker-machine -v
   - docker-compose -v
