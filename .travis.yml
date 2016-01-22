@@ -11,6 +11,8 @@ env:
     - TAG_LATEST: latest
 
 script:
-  - find /home -name '*.pem' 
-  - /sbin/ifconfig docker0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+  - ifconfig docker0
+  - ifconfig docker0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+  - docker login --username=balidea --password=balidea --email=veronica.otero@balidea.com
+  - sudo find . -name '*.pem' 
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
