@@ -16,10 +16,10 @@ script:
   - docker login --username=balidea --password=balidea --email=veronica.otero@balidea.com
   - ls  /home/travis/.docker
   - sudo mkdir /home/travis/.docker/certs
-  - sudo cd  /home/travis/.docker/certs
-  - sudo openssl genrsa -out ca-key.pem 2048;
-  - sudo openssl req -newkey rsa:2048 -days 1000 -nodes -keyout server-key.pem -out server-req.pem;
-  - sudo openssl x509 -req -in server-req.pem -days 1000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem;
-  - sudo openssl req -newkey rsa:2048 -days 1000 -nodes -keyout key.pem -out req.pem;
-  - sudo openssl x509 -req -in req.pem -days 1000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out cert.pem;
+  - cd  /home/travis/.docker/certs
+  - docker run -v $PWD:/work -it nginx openssl genrsa -des3 -out /work/server.key.protected 2048
+  - docker run -v $PWD:/work -it nginx openssl req -new -key /work/server.key.protected -out /work/server.csr
+  - docker run -v $PWD:/work -it nginx openssl rsa -in /work/server.key.protected -out /work/server.key
+  - docker run -v $PWD:/work -it nginx openssl x509 -req -days 365 -in /work/server.csr -signkey /work/server.key -out /work/server.crt
+  - ls
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
