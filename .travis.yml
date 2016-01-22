@@ -12,7 +12,7 @@ env:
 
 script:
   - ifconfig docker0
-  - ifconfig docker0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+  - ifconfig docker0 | grep 'inet addr:' | cut -d: -f2
   - docker login --username=balidea --password=balidea --email=veronica.otero@balidea.com
-  - sudo find . -name '*.pem' 
+  - sudo find  /home/travis/.docker -name '*.pem' 
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
