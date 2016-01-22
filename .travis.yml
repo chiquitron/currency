@@ -14,5 +14,5 @@ script:
   - ifconfig docker0
   - ifconfig docker0 | grep 'inet addr:' | cut -d: -f2
   - docker login --username=balidea --password=balidea --email=veronica.otero@balidea.com
-  - sudo find  /home/travis/.docker -name '*.pem' 
+  - ls  /home/travis/.docker
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
