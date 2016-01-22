@@ -11,5 +11,6 @@ env:
     - TAG_LATEST: latest
 
 script:
-  - find /home/travis/.docker -name '*.pem' 
+  - find /home -name '*.pem' 
+  - /sbin/ifconfig docker0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
   - docker build --pull=true -t $IMAGENAME:$TAG_VERSION .
